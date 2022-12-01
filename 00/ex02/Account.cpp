@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <ctime>
 #include "Account.hpp"
 
@@ -89,11 +90,15 @@ void Account::displayStatus(void) const
   std::cout << "withdrawals:" << _nbWithdrawals << std::endl;
 }
 
-//TODO: print timestamp
 void Account::_displayTimestamp(void)
 {
-  std::tm tm;
-  std::mktime(&tm);
-  //std::time_t time = std::mktime(&tm);
-  //std::cout << "[" << tm.tm_year << tm.tm_mon << tm.tm_mday << "-" << tm.tm_hour << tm.tm_min << tm.tm_sec << "] ";
+  time_t rawtime = time(NULL);
+  struct tm* tm = localtime(&rawtime);
+
+  std::cout << "[" << tm->tm_year  + 1900;
+  std::cout << std::setfill('0') << std::setw(2) << tm->tm_mon + 1;
+  std::cout << std::setfill('0') << std::setw(2) << tm->tm_mday << "_";
+  std::cout << std::setfill('0') << std::setw(2) << tm->tm_hour;
+  std::cout << std::setfill('0') << std::setw(2) << tm->tm_min;
+  std::cout << std::setfill('0') << std::setw(2) << tm->tm_sec << "]";
 }
