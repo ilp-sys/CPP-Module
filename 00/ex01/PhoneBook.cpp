@@ -40,19 +40,53 @@ void add_contact(class PhoneBook *book)
 {
   std::string info[5];
 
-  //TODO: A saved contact can't have empty fields
   while (true)
   {
-    std::cout << PROMPT << "first name: ";
-    std::getline(std::cin, info[0]);
-    std::cout << PROMPT << "last name: ";
-    std::getline(std::cin, info[1]);
-    std::cout << PROMPT << "nickname :";
-    std::getline(std::cin, info[2]);
-    std::cout << PROMPT << "phone num: ";
-    std::getline(std::cin, info[3]);
-    std::cout << PROMPT << "darkest secret: ";
-    std::getline(std::cin, info[4]);
+      std::cout << PROMPT << "first name: ";
+      if (std::getline(std::cin, info[0]).eof())
+        exit(EXIT_SUCCESS);
+      if (info[0].empty())
+      {
+        std::cout << "A field can not be empty, try again" << std::endl;
+        continue;
+      }
+
+      std::cout << PROMPT << "last name: ";
+      if (std::getline(std::cin, info[1]).eof())
+        exit(EXIT_SUCCESS);
+      if (info[1].empty())
+      {
+        std::cout << "A field can not be empty, try again" << std::endl;
+        continue;
+      }
+
+      std::cout << PROMPT << "nickname :";
+      if (std::getline(std::cin, info[2]).eof())
+        exit(EXIT_SUCCESS);
+      if (info[2].empty())
+      {
+        std::cout << "A field can not be empty, try again" << std::endl;
+        continue;
+      }
+
+      std::cout << PROMPT << "phone num: ";
+      if (std::getline(std::cin, info[3]).eof())
+        exit(EXIT_SUCCESS);
+      if (info[3].empty())
+      {
+        std::cout << "A field can not be empty, try again" << std::endl;
+        continue;
+      }
+
+      std::cout << PROMPT << "darkest secret: ";
+      if (std::getline(std::cin, info[4]).eof())
+        exit(EXIT_SUCCESS);
+      if (info[4].empty())
+      {
+        std::cout << "A field can not be empty, try again" << std::endl;
+        continue;
+      }
+      break ;
   }
 
   book->_set_contact(book->_get_current_idx(), info);
@@ -98,7 +132,6 @@ void search_contact(class PhoneBook *book)
   }
   else
   {
-    //TODO: dont't print when the field is empty
     std::cout << book->_get_contact(idx - 1)._get_first_name() << std::endl;
     std::cout << book->_get_contact(idx - 1)._get_last_name() << std::endl;
     std::cout << book->_get_contact(idx - 1)._get_nickname() << std::endl;
