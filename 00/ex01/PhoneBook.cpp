@@ -41,18 +41,20 @@ void add_contact(class PhoneBook *book)
   std::string info[5];
 
   //TODO: A saved contact can't have empty fields
-  std::cout << PROMPT << "first name: ";
-  std::cin >> info[0];
-  std::cout << PROMPT << "last name: ";
-  std::cin >> info[1];
-  std::cout << PROMPT << "nickname :";
-  std::cin >> info[2];
-  std::cout << PROMPT << "phone num: ";
-  std::cin >> info[3];
-  std::cout << PROMPT << "darkest secret: ";
-  std::cin >> info[4];
+  while (true)
+  {
+    std::cout << PROMPT << "first name: ";
+    std::getline(std::cin, info[0]);
+    std::cout << PROMPT << "last name: ";
+    std::getline(std::cin, info[1]);
+    std::cout << PROMPT << "nickname :";
+    std::getline(std::cin, info[2]);
+    std::cout << PROMPT << "phone num: ";
+    std::getline(std::cin, info[3]);
+    std::cout << PROMPT << "darkest secret: ";
+    std::getline(std::cin, info[4]);
+  }
 
-  std::cout << "add contact - current index :" << book->_get_current_idx() << std::endl;
   book->_set_contact(book->_get_current_idx(), info);
   book->_add_current_idx();
 }
@@ -88,13 +90,15 @@ void search_contact(class PhoneBook *book)
   //display requested column
   std::cout << "idx: ";
   std::cin >> idx;
+
   if (!(idx > 0 && idx <= CONTACT_NUM))
   {
     std::cout << "Index out of range" << std::endl;
+    std::cin.clear();
   }
   else
   {
-    //TODO: dont't print when the field empty
+    //TODO: dont't print when the field is empty
     std::cout << book->_get_contact(idx - 1)._get_first_name() << std::endl;
     std::cout << book->_get_contact(idx - 1)._get_last_name() << std::endl;
     std::cout << book->_get_contact(idx - 1)._get_nickname() << std::endl;

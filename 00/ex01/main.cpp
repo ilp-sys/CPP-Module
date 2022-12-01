@@ -5,10 +5,11 @@ int main()
   std::string input;
   PhoneBook   book;
 
-  while (1)
+  while (true)
   {
       std::cout << PROMPT;
-      std::cin >> input;
+      if (std::getline(std::cin, input).eof())
+        exit(EXIT_SUCCESS);
       if (input.compare("ADD") == 0)
         add_contact(&book);
       else if (input.compare("SEARCH") == 0)
@@ -16,5 +17,5 @@ int main()
       else if (input.compare("EXIT") == 0)
         break ;
   }
-  return (0);
+  return (EXIT_SUCCESS);
 }
