@@ -1,4 +1,4 @@
-NAME			  := megaphone
+NAME			  := account
 
 CC 				  := c++
 CFLAGS  	  := -std=c++98 -Wall -Wextra -Werror
@@ -6,7 +6,7 @@ CFLAGS  	  := -std=c++98 -Wall -Wextra -Werror
 RM				  := rm
 RMFLAGS     := -rf
 
-SRCS 			  := megaphone.cpp
+SRCS 			  := Account.cpp tests.cpp
 
 OBJDIR			:= ./obj/
 OBJNAME			:= $(SRCS:.cpp=.o)

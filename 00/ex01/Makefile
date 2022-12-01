@@ -1,4 +1,4 @@
-NAME			  := megaphone
+NAME			  := book 
 
 CC 				  := c++
 CFLAGS  	  := -std=c++98 -Wall -Wextra -Werror
@@ -6,7 +6,7 @@ CFLAGS  	  := -std=c++98 -Wall -Wextra -Werror
 RM				  := rm
 RMFLAGS     := -rf
 
-SRCS 			  := megaphone.cpp
+SRCS 			  := PhoneBook.cpp main.cpp
 
 OBJDIR			:= ./obj/
 OBJNAME			:= $(SRCS:.cpp=.o)
