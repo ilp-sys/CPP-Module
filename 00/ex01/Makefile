@@ -1,7 +1,7 @@
 NAME			  := book 
 
-CC 				  := c++
-CFLAGS  	  := -std=c++98 -Wall -Wextra -Werror
+CXX 				  := c++
+CXXFLAGS  	  := -std=c++98 -Wall -Wextra -Werror
 
 RM				  := rm
 RMFLAGS     := -rf
@@ -16,7 +16,7 @@ OBJS			  := $(addprefix $(OBJDIR), $(OBJNAME))
 all				  : $(NAME)
 
 $(NAME) 		:  $(OBJS)
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 .PHONY			: clean
 clean			  :
@@ -32,4 +32,4 @@ re				  : fclean all
 
 $(OBJDIR)%.o:%.cpp
 	@mkdir -p $(OBJDIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@

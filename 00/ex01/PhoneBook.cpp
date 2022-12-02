@@ -42,6 +42,7 @@ void add_contact(class PhoneBook *book)
 
   while (true)
   {
+      //TODO - remove whitespaces
       std::cout << PROMPT << "first name: ";
       if (std::getline(std::cin, info[0]).eof())
         exit(EXIT_SUCCESS);
