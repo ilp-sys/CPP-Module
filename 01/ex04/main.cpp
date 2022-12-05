@@ -9,6 +9,11 @@ int main(int argc, char *argv[])
     std::ofstream file_replace;
 
     file.open(argv[1]);
+    if (!file.is_open())
+    {
+      std::cout << "Could not open file: " << argv[1] << std::endl;
+      return (0);
+    }
     file_replace.open(std::string(argv[1]) + ".replace");
 
     std::string line;
