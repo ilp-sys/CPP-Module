@@ -3,10 +3,12 @@
 
 class Fixed
 {
-    int               number;
-    static const int  fbits;
+    int               _fnums;
+    static const int  _fbits;
   public:
     Fixed();
+    Fixed(Fixed &other);
+    void operator=(const Fixed&);
     ~Fixed();
     int getRawBits(void) const;
     void setRawBits(int const raw);
