@@ -1,6 +1,11 @@
 #include "Fixed.hpp"
+#include <cmath>
 
 Fixed::Fixed() : _fnums(0) { std::cout << "Default constructor called" << std::endl; }
+
+Fixed::Fixed(const int fnums) { _fnums = fnums; }
+
+Fixed::Fixed(const float fnums) { _fnums = roundf(fnums); }
 
 Fixed::Fixed(Fixed &other)
 {
@@ -17,8 +22,9 @@ Fixed& Fixed::operator=(const Fixed& other)
   return (*this);
 }
 
-std::ofstream& Fixed::operator<<(std::ofstream& os, const Fixed obj)
+std::ostream& Fixed::operator<<(std::ostream& os)
 {
+  std::cout << _fnums << std::endl;
   return (os);
 }
 
@@ -29,3 +35,13 @@ int Fixed::getRawBits(void) const
 }
 
 void Fixed::setRawBits(int const raw) { _fnums = raw; }
+
+float Fixed::toFloat(void) const
+{
+  return ();
+}
+
+int	Fixed::toInt(void) const
+{
+  return ();
+}
