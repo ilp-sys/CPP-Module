@@ -43,7 +43,7 @@ int Fixed::toInt(void) const
 
 Fixed& Fixed::operator++() //prefix
 {
-  _fixedN = _fixedN + 1;
+  _fixedN = _fixedN + 256;
   return (*this);
 }
 
@@ -56,7 +56,7 @@ Fixed Fixed::operator++(int) //postfix
 
 Fixed& Fixed::operator--() //prefix
 {
-  _fixedN = _fixedN - 1;
+  _fixedN = _fixedN - 256;
   return (*this);
 }
 
@@ -67,9 +67,31 @@ Fixed Fixed::operator--(int) //postfix
   return (old);
 }
 
-bool operator==(const Fixed& lhs, const Fixed& rhs) { return (lhs == rhs); }
-bool operator!=(const Fixed& lhs, const Fixed& rhs) { return (lhs != rhs); }
-bool operator>(const Fixed& lhs, const Fixed& rhs) { return (rhs > lhs); }
-bool operator<(const Fixed& lhs, const Fixed& rhs) { return (rhs < lhs); }
-bool operator<=(const Fixed& lhs, const Fixed& rhs) { return !(rhs > lhs); }
-bool operator>=(const Fixed& lhs, const Fixed& rhs) { return !(rhs < lhs); }
+bool operator==(const Fixed& lhs, const Fixed& rhs) { return (lhs.getRawBits()== rhs.getRawBits()); }
+bool operator!=(const Fixed& lhs, const Fixed& rhs) { return (lhs.getRawBits() != rhs.getRawBits()); }
+bool operator>(const Fixed& lhs, const Fixed& rhs) { return (lhs.getRawBits() > rhs.getRawBits()); }
+bool operator<(const Fixed& lhs, const Fixed& rhs) { return (lhs.getRawBits() < rhs.getRawBits()); }
+bool operator<=(const Fixed& lhs, const Fixed& rhs) { return !(lhs.getRawBits() >= rhs.getRawBits()); }
+bool operator>=(const Fixed& lhs, const Fixed& rhs) { return !(lhs.getRawBits() <= rhs.getRawBits()); }
+
+
+Fixed	operator+(Fixed lhs, const Fixed& rhs) { return (lhs.toFloat() + rhs.toFloat()); };
+Fixed	operator-(Fixed lhs, const Fixed& rhs) { return (lhs.toFloat() - rhs.toFloat()); };
+Fixed	operator*(Fixed lhs, const Fixed& rhs) { return (lhs.toFloat() * rhs.toFloat()); };
+Fixed	operator/(Fixed lhs, const Fixed& rhs) { return (lhs.toFloat() / rhs.toFloat()); };
+
+Fixed& Fixed::min(const Fixed& lhs, const Fixed& rhs)
+{
+  if (lhs.getRawBits() > rhs.getRawBits())
+    return (const_cast<Fixed&>(rhs));
+  else
+    return (const_cast<Fixed&>(lhs));
+}
+
+Fixed& Fixed::max(const Fixed& lhs, const Fixed& rhs)
+{
+  if (lhs.getRawBits() > rhs.getRawBits())
+    return (const_cast<Fixed&>(lhs));
+  else
+    return (const_cast<Fixed&>(rhs));
+}

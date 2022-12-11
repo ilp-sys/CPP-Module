@@ -1,12 +1,12 @@
-NAME			  := brainz
+NAME			  := fixed
 
-CXX 				  := c++
-CXXFLAGS  	  := -std=c++98 -Wall -Wextra -Werror
+CXX 				:= c++
+CXXFLAGS  	:= -std=c++98 -Wall -Wextra -Werror
 
 RM				  := rm
 RMFLAGS     := -rf
 
-SRCS 			  := Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
+SRCS 			  := Fixed.cpp main.cpp
 
 OBJDIR			:= ./obj/
 OBJNAME			:= $(SRCS:.cpp=.o)
