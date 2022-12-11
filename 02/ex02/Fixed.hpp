@@ -26,10 +26,8 @@ class Fixed
     Fixed&	        operator--();
     Fixed	          operator--(int);
 
-    static Fixed&	  min(Fixed& lhs, Fixed* rhs);
-    static Fixed&	  min(const Fixed& lhs, const Fixed* rhs);
-    static Fixed&	  max(Fixed& lhs, Fixed* rhs);
-    static Fixed&	  max(const Fixed& lhs, const Fixed* rhs);
+    static Fixed&	  min(const Fixed& lhs, const Fixed& rhs);
+    static Fixed&	  max(const Fixed& lhs, const Fixed& rhs);
 
   };
 

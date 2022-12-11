@@ -3,7 +3,16 @@
 int main(void)
 {
   Fixed	      a;
-  Fixed const	b(Fixed(5.05f) * Fixed(2));
+  const Fixed	b;
+  
+  
+  std::cout << "Test for the 6 comparison operators" << std::endl << std::endl;
+
+
+
+  std::cout << "Test for the 4 arithmetic operators" << std::endl << std::endl;
+
+  std::cout << "Test for the 4 in/decrement operators" << std::endl << std::endl;
 
   std::cout << a << std::endl;
   std::cout << ++a << std::endl;
@@ -11,9 +20,10 @@ int main(void)
   std::cout << a++ << std::endl;
   std::cout << a << std::endl;
 
-  std::cout << b << std::endl;
+  std::cout << "Test for min/max member functions" << std::endl << std::endl;
 
   std::cout << Fixed::max(a, b) << std::endl;
+  std::cout << Fixed::min(a, b) << std::endl;
 
   return (0);
 }
