@@ -3,7 +3,7 @@
 
 class Fixed
 {
-    int	             _fpnv;
+    int	             _fNum;
     static const int _fbits = 8;
   public:
     Fixed();

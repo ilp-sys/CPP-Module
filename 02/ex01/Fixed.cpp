@@ -1,47 +1,54 @@
 #include "Fixed.hpp"
 #include <cmath>
 
-Fixed::Fixed() : _fnums(0) { std::cout << "Default constructor called" << std::endl; }
+Fixed::Fixed() : _fixedN(0) { std::cout << "Default constructor called" << std::endl;  }
 
-Fixed::Fixed(const int fnums) { _fnums = fnums; }
-
-Fixed::Fixed(const float fnums) { _fnums = roundf(fnums); }
-
-Fixed::Fixed(Fixed &other)
+Fixed::Fixed(const int iNum)
 {
-  std::cout << "Copy assignment operator called" << std::endl;
-  _fnums = other.getRawBits();
+  std::cout << "Int constructor called" << std::endl;
+  _fixedN = iNum << _fBits;
 }
 
-Fixed::~Fixed(){ std::cout << "Destructor called" << std::endl; }
+Fixed::Fixed(const float fixedN)
+{
+  std::cout << "Float constructor called" << std::endl;
+  _fixedN = roundf(fixedN * pow(2, _fBits));
+}
+
+Fixed::Fixed(const Fixed& fixed)
+{
+  std::cout << "Copy constructor called" << std::endl;
+  _fixedN = fixed.getRawBits();
+}
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
   std::cout << "Copy assignment operator called" << std::endl;
-  _fnums = other.getRawBits();
+  _fixedN = other.getRawBits();
   return (*this);
 }
 
-std::ostream& Fixed::operator<<(std::ostream& os)
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 {
-  std::cout << _fnums << std::endl;
+  os << fixed.toFloat();
   return (os);
 }
 
+Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
+
 int Fixed::getRawBits(void) const
 {
-  std::cout << "getRawBits member function called" << std::endl;
-  return (_fnums);
+  return (_fixedN);
 }
 
-void Fixed::setRawBits(int const raw) { _fnums = raw; }
+void Fixed::setRawBits(int const raw) { _fixedN = raw; }
 
 float Fixed::toFloat(void) const
 {
-  return ();
+  return (_fixedN / pow(2, _fBits));
 }
 
-int	Fixed::toInt(void) const
+int Fixed::toInt(void) const
 {
-  return ();
+  return (_fixedN >> _fBits);
 }
