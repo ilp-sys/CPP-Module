@@ -7,15 +7,15 @@ class Point
 {
     const Fixed _x;
     const Fixed _y;
+    Point& operator=(const Point&);
   public:
     Point();
-    Point(Point&);
+    Point(const Point&);
     Point(const float, const float);
-    Point& operator=(const Point&);
     ~Point();
 
-    Fixed getX();
-    Fixed getY();
+    Fixed getY() const;
+    Fixed getX() const;
 };
 
 bool bsp(Point const a, Point const b, Point const c, Point const point);
