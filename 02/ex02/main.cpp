@@ -31,6 +31,12 @@ int main(void)
   std::cout << "a++ :" << a++ << std::endl;
   std::cout << "a   :" << a << std::endl;
 
+  std::cout << "a   :" << a << std::endl;
+  std::cout << "--a :" << --a << std::endl;
+  std::cout << "a   :" << a << std::endl;
+  std::cout << "a-- :" << a-- << std::endl;
+  std::cout << "a   :" << a << std::endl;
+
   std::cout << "\nTest for min/max member functions"<< std::endl;
 
   std::cout << "max(a, b) :" << Fixed::max(a, b) << std::endl;

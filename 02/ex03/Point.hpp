@@ -19,5 +19,6 @@ class Point
 };
 
 bool bsp(Point const a, Point const b, Point const c, Point const point);
+bool operator==(const Point& lhs, const Point& rhs);
 
 #endif

@@ -17,7 +17,11 @@ static Fixed calcTriArea(const Point& a, const Point& b, const Point& c)
 {
   Fixed tmp1 = a.getX() * b.getY() + b.getX() * c.getY() + c.getX() * a.getY();
   Fixed tmp2 = b.getX() * a.getY() + c.getX() * b.getY() + a.getX() * c.getY();
-  return ((tmp1 + tmp2) / 2);
+
+  if ((tmp1 - tmp2) < 0)
+    return ((tmp2 - tmp1) / 2);
+  else
+    return ((tmp1 - tmp2) / 2);
 }
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
@@ -26,5 +30,11 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
   Fixed areaB = calcTriArea(b, c, point);
   Fixed areaC = calcTriArea(c, a, point);
 
-  return ((areaA + areaB + areaC) <= calcTriArea(a, b, c));
+  if (point == a || point == b || point == c)
+    return (true);
+
+  return ((areaA + areaB + areaC) == calcTriArea(a, b, c));
 }
+
+bool operator==(const Point& lhs, const Point& rhs) { return ((lhs.getX() == rhs.getX()) && (lhs.getY() == lhs.getY())); }
+

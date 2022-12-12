@@ -28,7 +28,6 @@ class Fixed
 
     static Fixed&	  min(const Fixed& lhs, const Fixed& rhs);
     static Fixed&	  max(const Fixed& lhs, const Fixed& rhs);
-
   };
 
 std::ostream&	  operator<<(std::ostream& os, const Fixed& fixed);
