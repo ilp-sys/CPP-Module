@@ -1,11 +1,11 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-  ClapTrap a("A");
-  ClapTrap b("B");
-  ClapTrap c(a);
-  ClapTrap d = b;
+  ScavTrap a("A");
+  ScavTrap b("B");
+  ScavTrap c(a);
+  ScavTrap d = b;
   c.setName("C"); d.setName("D");
 
 
@@ -21,7 +21,7 @@ int main()
       c.takeDamage(b.getAttackDamage());
   } 
 
-  d.beRepaired(10);
+  d.guardGate();
 
   std::cout << std::endl << "All operations ended" << std::endl;
 
