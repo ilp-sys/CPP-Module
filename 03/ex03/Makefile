@@ -1,4 +1,4 @@
-NAME			  := fixed
+NAME			  := ScavTrap
 
 CXX 				:= c++
 CXXFLAGS  	:= -std=c++98 -Wall -Wextra -Werror
@@ -6,7 +6,7 @@ CXXFLAGS  	:= -std=c++98 -Wall -Wextra -Werror
 RM				  := rm
 RMFLAGS     := -rf
 
-SRCS 			  := Fixed.cpp main.cpp
+SRCS 			  := ClapTrap.cpp ScavTrap.cpp main.cpp
 
 OBJDIR			:= ./obj/
 OBJNAME			:= $(SRCS:.cpp=.o)
