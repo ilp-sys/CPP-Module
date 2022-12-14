@@ -52,36 +52,25 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::takeDamage(unsigned int amount)
 {
-  if (amount < 0)
-    std::cout << "amount can't be negative" << std::endl;
-  else
+  if (getHitPoint() > 0)
   {
-    if (getHitPoint() > 0)
-    {
-      setHitPoint(getHitPoint() - amount);
-      std::cout << "ScavTrap " << getName() << " damaged for " << amount << ", left " << getHitPoint() << " points of HP!" << std::endl;
-    }
-    else
-      std::cout << "ScavTrap " << getName() << " already dead" << std::endl;
-  } 
+    setHitPoint(getHitPoint() - amount);
+    std::cout << "ScavTrap " << getName() << " damaged for " << amount << ", left " << getHitPoint() << " points of HP!" << std::endl;
+  }
+  else
+    std::cout << "ScavTrap " << getName() << " already dead" << std::endl;
 }
 
 void ScavTrap::beRepaired(unsigned int amount)
 {
-  if (amount < 0)
-    std::cout << "amount can't be negative" << std::endl;
-  else
+  if (getEnergyPoint() > 0)
   {
-    if (getEnergyPoint() > 0)
-    {
-      setEnergyPoint(getEnergyPoint() - 1);
-      setHitPoint(getHitPoint() + amount);
-      std::cout << "ScavTrap " << getName() << " repaired itself, HP left " << getHitPoint() << std::endl;
-    }
-    else
-      std::cout << "Repair failed, lacks of Energy point!" << std::endl;
+    setEnergyPoint(getEnergyPoint() - 1);
+    setHitPoint(getHitPoint() + amount);
+    std::cout << "ScavTrap " << getName() << " repaired itself, HP left " << getHitPoint() << std::endl;
   }
-
+  else
+    std::cout << "Repair failed, lacks of Energy point!" << std::endl;
 }
 
 void ScavTrap::guardGate()
