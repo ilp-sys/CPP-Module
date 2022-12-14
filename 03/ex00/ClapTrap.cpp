@@ -43,36 +43,25 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-  if (amount < 0)
-    std::cout << "amount can't be negative" << std::endl;
-  else
+  if (_hitPoints > 0)
   {
-    if (_hitPoints > 0)
-    {
-      _hitPoints -= amount;
-      std::cout << "ClapTrap " << getName() << " damaged for " << amount << ", left " << getHitPoint() << " points of HP!" << std::endl;
-    }
-    else
-      std::cout << "ClapTrap " << getName() << " already dead" << std::endl;
-  } 
+    _hitPoints -= amount;
+    std::cout << "ClapTrap " << getName() << " damaged for " << amount << ", left " << getHitPoint() << " points of HP!" << std::endl;
+  }
+  else
+    std::cout << "ClapTrap " << getName() << " already dead" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-  if (amount < 0)
-    std::cout << "amount can't be negative" << std::endl;
-  else
+  if (_energyPoints >= 0)
   {
-    if (_energyPoints >= 0)
-    {
-      --_energyPoints;
-      _hitPoints += amount;
-      std::cout << "ClapTrap " << getName() << " repaired itself, HP left " << getHitPoint() << std::endl;
-    }
-    else
-      std::cout << "Repair failed, lacks of Energy point!" << std::endl;
+    --_energyPoints;
+    _hitPoints += amount;
+    std::cout << "ClapTrap " << getName() << " repaired itself, HP left " << getHitPoint() << std::endl;
   }
-
+  else
+    std::cout << "Repair failed, lacks of Energy point!" << std::endl;
 }
 
 std::string ClapTrap::getName() const { return (_name); }

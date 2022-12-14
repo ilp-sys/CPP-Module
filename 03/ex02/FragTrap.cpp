@@ -4,8 +4,8 @@ FragTrap::FragTrap()
 {
   setName("default");
   setHitPoint(100);
-  setEnergyPoint(50);
-  setAttackDamage(20);
+  setEnergyPoint(100);
+  setAttackDamage(30);
   std::cout << "FragTrap constructor called"<< std::endl;
 }
 
@@ -13,8 +13,8 @@ FragTrap::FragTrap(std::string name)
 {
   setName(name);
   setHitPoint(100);
-  setEnergyPoint(50);
-  setAttackDamage(20);
+  setEnergyPoint(100);
+  setAttackDamage(30);
   std::cout << "FragTrap constructor called"<< std::endl;
 }
 

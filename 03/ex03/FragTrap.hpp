@@ -1,9 +1,9 @@
-#ifndef __SCAVTRAP_HPP__
-#define __SCAVTRAP_HPP__
+#ifndef __FRAGTRAP_HPP__
+#define __FRAGTRAP_HPP__
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : public virtual ClapTrap
 {
   public:
     FragTrap();
