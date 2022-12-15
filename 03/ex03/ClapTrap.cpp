@@ -37,7 +37,7 @@ void ClapTrap::attack(const std::string& target)
     --_energyPoints;
     std::cout << "ClapTrap " << getName() << " attacks " << target << " , causing " <<  getAttackDamage() << " points of damage!" << std::endl;
   }
-  else if (_energyPoints > 0)
+  else if (_energyPoints <= 0)
     std::cout << "Missed! ClapTrap " << getName() << " lacks of energy point!" << std::endl;
   else
     std::cout << "Failed! ClapTrap " << getName() << " alread dead" << std::endl;
@@ -62,13 +62,13 @@ void ClapTrap::beRepaired(unsigned int amount)
     --_energyPoints;
     std::cout << "ClapTrap " << getName() << " repaired itself, HP left " << getHitPoint() << std::endl;
   }
-  else if (_energyPoints > 0)
+  else if (_energyPoints <= 0)
     std::cout << "Repair failed, lacks of Energy point!" << std::endl;
   else
     std::cout << "Failed! ClapTrap " << getName() << " alread dead" << std::endl;
 }
 
 std::string ClapTrap::getName() const { return (_name); }
-int ClapTrap::getHitPoint() const { return (_hitPoints); }
-int ClapTrap::getEnergyPoint() const { return (_energyPoints); }
-int ClapTrap::getAttackDamage() const { return (_attackDamage); }
+unsigned int ClapTrap::getHitPoint() const { return (_hitPoints); }
+unsigned int ClapTrap::getEnergyPoint() const { return (_energyPoints); }
+unsigned int ClapTrap::getAttackDamage() const { return (_attackDamage); }

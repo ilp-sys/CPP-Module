@@ -6,8 +6,6 @@ int main()
   FragTrap b("B");
   FragTrap c(a);
   FragTrap d = b;
-  c.setName("C"); d.setName("D");
-
 
   std::cout << std::endl << "All opbjects are created" << std::endl;
 
