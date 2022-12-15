@@ -6,8 +6,6 @@ int main()
   ScavTrap b("B");
   ScavTrap c(a);
   ScavTrap d = b;
-  c.setName("C"); d.setName("D");
-
 
   std::cout << std::endl << "All opbjects are created" << std::endl;
 
