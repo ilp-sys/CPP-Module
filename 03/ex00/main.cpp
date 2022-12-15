@@ -6,7 +6,6 @@ int main()
   ClapTrap b("B");
   ClapTrap c(a);
   ClapTrap d = b;
-  c.setName("C"); d.setName("D");
 
 
   std::cout << std::endl << "All opbjects are created" << std::endl;
