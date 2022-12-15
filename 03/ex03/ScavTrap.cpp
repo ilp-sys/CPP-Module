@@ -55,7 +55,10 @@ void ScavTrap::takeDamage(unsigned int amount)
 {
   if (getHitPoint() > 0)
   {
-    _hitPoints -= amount;
+    if (_hitPoints < amount)
+      _hitPoints = 0;
+    else
+      _hitPoints -= amount;
     std::cout << "ScavTrap " << getName() << " damaged for " << amount << ", left " << getHitPoint() << " points of HP!" << std::endl;
   }
   else
@@ -67,7 +70,8 @@ void ScavTrap::beRepaired(unsigned int amount)
   if (getEnergyPoint() > 0 || getHitPoint() > 0)
   {
     --_energyPoints;
-    _hitPoints += amount;
+    if (_hitPoints <= UINT_MAX - amount)
+      _hitPoints += amount;
     std::cout << "ScavTrap " << getName() << " repaired itself, HP left " << getHitPoint() << std::endl;
   }
   else if (getEnergyPoint() <= 0)

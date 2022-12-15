@@ -55,8 +55,10 @@ void FragTrap::takeDamage(unsigned int amount)
 {
   if (getHitPoint() > 0)
   {
-    //TODO: signed value is stored in unsigned int
-    _hitPoints -= amount;
+    if (_hitPoints < amount)
+      _hitPoints = 0;
+    else
+      _hitPoints -= amount;
     std::cout << "FragTrap " << getName() << " damaged for " << amount << ", left " << getHitPoint() << " points of HP!" << std::endl;
   }
   else
@@ -67,8 +69,9 @@ void FragTrap::beRepaired(unsigned int amount)
 {
   if (getEnergyPoint() > 0 || getHitPoint() > 0)
   {
+    if (_hitPoints <= UINT_MAX - amount)
+      _hitPoints += amount;
     --_energyPoints;
-    _hitPoints += amount;
     std::cout << "FragTrap " << getName() << " repaired itself, HP left " << getHitPoint() << std::endl;
   }
   else if (getEnergyPoint() <= 0)
