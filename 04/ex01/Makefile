@@ -1,4 +1,4 @@
-NAME			  := ClapTrap
+NAME			  := Fire
 
 CXX 				:= c++
 CXXFLAGS  	:= -std=c++98 -Wall -Wextra -Werror
@@ -6,7 +6,7 @@ CXXFLAGS  	:= -std=c++98 -Wall -Wextra -Werror
 RM				  := rm
 RMFLAGS     := -rf
 
-SRCS 			  := ClapTrap.cpp main.cpp
+SRCS 			  := Animal.cpp Brain.cpp Cat.cpp Dog.cpp
 
 OBJDIR			:= ./obj/
 OBJNAME			:= $(SRCS:.cpp=.o)
