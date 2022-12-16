@@ -24,6 +24,7 @@ int main()
   const WrongAnimal	*wrong_cat = new WrongCat();
    
   std::cout << wrong_cat->getType() << std::endl;
+  wrong_meta->makeSound();
   wrong_cat->makeSound();
 
   return (0);

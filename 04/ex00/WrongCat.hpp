@@ -1,5 +1,5 @@
-#ifndef __CAT_HPP__
-#define __CAT_HPP__
+#ifndef __WRONGCAT_HPP__
+#define __WRONGCAT_HPP__
 
 #include "WrongAnimal.hpp"
 
