@@ -4,6 +4,7 @@ Cat::Cat()
 {
   std::cout << "Constructor called for Cat" << std::endl;
   _type = "Cat";
+  _brain = new Brain();
 }
 
 Cat::Cat(const Cat& other)
@@ -18,6 +19,9 @@ Cat& Cat::operator=(const Cat& other)
   return (*this);
 }
 
-Cat::~Cat() { std::cout << "Destructor called for Cat" << std::endl; }
+Cat::~Cat()
+{
+  std::cout << "Destructor called for Cat" << std::endl;
+}
 
 void Cat::makeSound() const { std::cout << "—ฅ/ᐠ. ̫ .ᐟ\\ฅ —"  << std::endl; }

@@ -4,6 +4,7 @@ Dog::Dog()
 {
   std::cout << "Constructor called for Dog" << std::endl;
   _type = "Dog";
+  _brain = new Brain();
 }
 
 Dog::Dog(const Dog& other)
