@@ -6,7 +6,7 @@ CXXFLAGS  	:= -std=c++98 -Wall -Wextra -Werror
 RM				  := rm
 RMFLAGS     := -rf
 
-SRCS 			  := Animal.cpp Brain.cpp Cat.cpp Dog.cpp
+SRCS 			  := Animal.cpp Brain.cpp Cat.cpp Dog.cpp main.cpp
 
 OBJDIR			:= ./obj/
 OBJNAME			:= $(SRCS:.cpp=.o)

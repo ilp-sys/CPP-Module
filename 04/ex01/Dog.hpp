@@ -13,6 +13,8 @@ class Dog : public Animal
     Dog& operator=(const Dog&);
     ~Dog();
 
+    void addIdeas(const std::string);
+    void printAllIdeas(void);
     void makeSound() const;
 }; 
 
