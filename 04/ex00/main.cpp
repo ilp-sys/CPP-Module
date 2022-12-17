@@ -5,7 +5,7 @@
 
 int main()
 {
-  std::cout << "NORMAL CASES WITH ANIMALS" << std::endl;
+  std::cout << "\nNORMAL CASES WITH ANIMALS\n" << std::endl;
 
   const Animal *meta = new Animal();
   const Animal* j = new Dog();
@@ -18,7 +18,7 @@ int main()
   j->makeSound();
   meta->makeSound();
 
-  std::cout << "WRONG CASES WITH WRONG ANIMALS" << std::endl;
+  std::cout << "\nWRONG CASES WITH WRONG ANIMALS\n" << std::endl;
 
   const WrongAnimal *wrong_meta = new WrongAnimal();
   const WrongAnimal	*wrong_cat = new WrongCat();
