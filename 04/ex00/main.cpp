@@ -18,6 +18,10 @@ int main()
   j->makeSound();
   meta->makeSound();
 
+  delete meta;
+  delete i;
+  delete j;
+
   std::cout << "\nWRONG CASES WITH WRONG ANIMALS\n" << std::endl;
 
   const WrongAnimal *wrong_meta = new WrongAnimal();
@@ -26,6 +30,9 @@ int main()
   std::cout << wrong_cat->getType() << std::endl;
   wrong_meta->makeSound();
   wrong_cat->makeSound();
+
+  delete wrong_meta;
+  delete wrong_cat;
 
   return (0);
 }
