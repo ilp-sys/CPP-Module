@@ -2,14 +2,19 @@
 #define __CHARACTER_HPP__
 
 #include "ICharacter.hpp"
-#include "AMateria.hpp"
 
 class Character : public ICharacter
 {
     std::string _name;
-    AMateria	  *inven;
+    AMateria	  *_slot;
   public:
-    virtual std::string const &getName() const;
+    Character();
+    Character(std::string);
+    Character(const Character&);
+    Character& operator=(Character&);
+    ~Character();
+
+    virtual std::string const & getName() const;
     virtual void equip(AMateria* m);
     virtual void unequip(int idx);
     virtual void use(int idx, ICharacter& target);
