@@ -1,12 +1,12 @@
 NAME			  := Recap
 
 CXX 				:= c++
-CXXFLAGS  	:= -std=c++98 -Wall -Wextra -Werror
+CXXFLAGS  	:= -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g
 
 RM				  := rm
 RMFLAGS     := -rf
 
-SRCS 			  := AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
+SRCS 			  := AMateria.cpp Character.cpp Cure.cpp Ice.cpp Materia.cpp MateriaSource.cpp main.cpp
 
 OBJDIR			:= ./obj/
 OBJNAME			:= $(SRCS:.cpp=.o)

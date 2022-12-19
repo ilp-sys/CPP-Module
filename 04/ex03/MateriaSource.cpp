@@ -44,7 +44,7 @@ void  MateriaSource::learnMateria(AMateria *materia)
 
   //capacity check
   for (int i = 0; i < MAX_SLOT; ++i)
-    flag |= _capa[i];
+    flag &= _capa[i];
   if (flag == true) 
   {
     std::cerr << "Slot already full, can't learn anymore" << std::endl;
@@ -69,9 +69,15 @@ void  MateriaSource::learnMateria(AMateria *materia)
       if (_capa[i] == false)
       {
         if (materia->getType() == "cure")
-          _capa[i] = new Cure();
+        {
+          _capa[i] = true;
+          _slot[i] = new Cure(); 
+        }
         else
-          _capa[i] = new Ice();
+        {
+          _capa[i] = true;
+          _slot[i] = new Ice();
+        }
         break;
       }
   }

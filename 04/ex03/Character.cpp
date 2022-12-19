@@ -48,14 +48,7 @@ Character& Character::operator=(const Character& other)
   return (*this);
 }
 
-Character::~Character()
-{
-  for (int i = 0; i < MAX_SLOT; i++)
-  {
-      if (_capa[i] == true)
-        delete _slot[i];
-  }
-}
+Character::~Character() {}
 
 std::string const &Character::getName() const { return (_name); }
 
