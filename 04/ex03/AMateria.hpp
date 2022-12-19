@@ -10,12 +10,12 @@ class AMateria
   protected:
     std::string _type;
 
+  public:
     AMateria();
     AMateria(const AMateria&);
     AMateria& operator=(AMateria&);
-    virtual ~AMateria(); //TODO: see if the abstract class's pointer could be defined
+    virtual ~AMateria();
 
-  public:
     AMateria(std::string const & type);
     std::string const &getType() const;
 
