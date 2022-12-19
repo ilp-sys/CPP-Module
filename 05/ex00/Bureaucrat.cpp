@@ -1,30 +1,42 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("jiwahn"){}
+class Bureaucrat::GradeTooHighException : public std::exception
+{
+  public:
+    const char* what() const throw() { return "Grade too high"; }
+};
 
-Bureaucrat::Bureaucrat(const unsigned int grade) : _name("jiwahn")
+class Bureaucrat::GradeTooLowException : public std::exception
+{
+  public:
+    const char* what() const throw() { return "Grade too low"; }
+};
+
+Bureaucrat::Bureaucrat() : _name("A"){}
+
+Bureaucrat::Bureaucrat(const int grade) : _name("A")
 {
   try
   {
-    if (_grade < 1)
+    if (grade < 1)
       throw GradeTooHighException();
-    if (_grade > 150)
+    if (grade > 150)
       throw GradeTooLowException();
     _grade = grade;
   }
-  catch (const GradeTooHighException & e)
+  catch (GradeTooHighException & e)
   {
-    std::cerr << e.what();
+    std::cerr << e.what() << std::endl;
   }
-  catch (const GradeTooLowException & e)
+  catch (GradeTooLowException & e)
   {
-    std::cerr << e.what();
+    std::cerr << e.what() << std::endl;
   }
 }
 
 Bureaucrat::~Bureaucrat(){}
 
-unsigned int Bureaucrat::getGrade() const { return (_grade); }
+int Bureaucrat::getGrade() const { return (_grade); }
 
 std::string Bureaucrat::getName() const { return (_name); }
 

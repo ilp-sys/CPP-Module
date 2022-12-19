@@ -2,11 +2,12 @@
 
 int main()
 {
-  Bureaucrat b(100);
+  Bureaucrat a(10);
 
-  Bureaucrat b(100);
+  Bureaucrat b(0);
+  Bureaucrat c(1000);
 
-  Bureaucrat b(100);
+  std::cout << a << std::endl;
   return (0);
 }
 
