@@ -56,7 +56,7 @@ void Form::beSigned(Bureaucrat &b)
 
 std::ostream& operator<<(std::ostream& out, const Form& f)
 {
-  out << f.getName() << " form grade " << f.getSignGrade();
+  out << f.getName() << " form sgrade " << f.getSignGrade() << " egrade " << f.getExecuteGrade();
   if (f.getSigned())
     out << " is already signed";
   else
