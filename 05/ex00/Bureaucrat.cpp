@@ -24,11 +24,7 @@ Bureaucrat::Bureaucrat(const int grade) : _name("A")
       throw GradeTooLowException();
     _grade = grade;
   }
-  catch (GradeTooHighException & e)
-  {
-    std::cerr << e.what() << std::endl;
-  }
-  catch (GradeTooLowException & e)
+  catch (std::exception& e)
   {
     std::cerr << e.what() << std::endl;
   }
@@ -42,5 +38,33 @@ std::string Bureaucrat::getName() const { return (_name); }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& b)
 {
-  return out << b.getName() << ", bureaucrat grade " << b.getGrade() << "." << std::endl;
+  return out << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
+}
+
+void Bureaucrat::upgradeBureaucrat()
+{
+  try
+  {
+    if (_grade == 1)
+      throw GradeTooHighException();
+    --_grade;
+  }
+  catch (std::exception &e)
+  {
+    std::cerr << e.what() << std::endl;
+  }  
+}
+
+void Bureaucrat::degradeBureaucrat()
+{
+  try
+  {
+    if (_grade == 150)
+      throw GradeTooLowException();
+    ++_grade;
+  }
+  catch (std::exception &e)
+  {
+    std::cerr << e.what() << std::endl;
+  }  
 }
