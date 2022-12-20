@@ -13,9 +13,9 @@ class Form::GradeTooLowException : public std::exception
 };
 
 
-Form::Form() : _name(DEFAULT_NAME), _grade(DEFAULT_GRD){ _signed  = false; }
+Form::Form() : _name(DEFAULT_NAME), _sGrade(DEFAULT_SGRD), _eGrade(DEFAULT_EGRD) { _signed  = false; }
 
-Form::Form(const Form& other) : _name(other.getName()), _grade(other.getGrade())
+Form::Form(const Form& other) : _name(other.getName()), _sGrade(other.getSignGrade()), _eGrade(other.getExecuteGrade())
 {
   *this = other;
 }
@@ -29,7 +29,9 @@ Form& Form::operator=(const Form &other)
 
 Form::~Form() {}
 
-int Form::getGrade() const { return (_grade); }
+int Form::getSignGrade() const { return (_sGrade); }
+
+int Form::getExecuteGrade() const { return (_eGrade); }
 
 bool Form::getSigned() const { return (_signed); }
 
@@ -39,7 +41,7 @@ void Form::beSigned(Bureaucrat &b)
 {
   try
   {
-    if (b.getGrade() > getGrade())
+    if (b.getGrade() > getSignGrade())
       throw GradeTooLowException();
     b.signForm();
     _signed = true;
@@ -54,7 +56,7 @@ void Form::beSigned(Bureaucrat &b)
 
 std::ostream& operator<<(std::ostream& out, const Form& f)
 {
-  out << f.getName() << " form grade " << f.getGrade();
+  out << f.getName() << " form grade " << f.getSignGrade();
   if (f.getSigned())
     out << " is already signed";
   else

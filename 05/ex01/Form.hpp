@@ -4,13 +4,15 @@
 #include "Bureaucrat.hpp"
 
 #define DEFAULT_NAME "default"
-#define DEFAULT_GRD  100
+#define DEFAULT_SGRD  100
+#define DEFAULT_EGRD  100
 
 class Form
 {
     bool	            _signed;
     const std::string _name;
-    const int	        _grade;
+    const int	        _sGrade;
+    const int	        _eGrade;
 
   public:
     Form();
@@ -19,7 +21,8 @@ class Form
     ~Form();
 
     bool	      getSigned() const;
-    int	        getGrade() const;
+    int	        getSignGrade() const;
+    int	        getExecuteGrade() const;
     std::string getName() const;
 
     void	      beSigned(Bureaucrat&);
