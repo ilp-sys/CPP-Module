@@ -24,7 +24,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(145, 13
   setSigned(false);
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
+void ShrubberyCreationForm::execute(const Bureaucrat &) const
 {
   std::fstream fs;
   fs.open(_target + "_schrubbery", std::fstream::in | std::fstream::out | std::fstream::app);

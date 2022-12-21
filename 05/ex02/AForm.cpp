@@ -45,7 +45,7 @@ bool AForm::getSigned() const { return (_signed); }
 
 std::string AForm::getName() const { return (_name); }
 
-void AForm::beSigned(Bureaucrat &b) { _signed = true; }
+void AForm::beSigned(Bureaucrat &) { _signed = true; }
 
 std::ostream& operator<<(std::ostream& out, const AForm& f)
 {

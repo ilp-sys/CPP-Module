@@ -24,14 +24,14 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(72, 45, "Ro
   setSigned(false);
 }
 
-void RobotomyRequestForm::execute(const Bureaucrat &executor) const
+void RobotomyRequestForm::execute(const Bureaucrat &) const
 {
   std::cout << "drrrr............" << std::endl;
   std::srand(std::time(nullptr));
 
   int randomVar = std::rand();
   if (randomVar % 2)
-    std::cout << _target << "has been robotomized" << std::endl;
+    std::cout << _target << " has been robotomized" << std::endl;
   else
     std::cout << "robotomy failed" << std::endl;
 }

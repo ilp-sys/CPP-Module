@@ -24,7 +24,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(25, 5
   setSigned(false);
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat &executor) const
+void PresidentialPardonForm::execute(const Bureaucrat &) const
 {
   std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
