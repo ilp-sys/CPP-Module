@@ -16,18 +16,11 @@ Bureaucrat::Bureaucrat() : _name("A"){}
 
 Bureaucrat::Bureaucrat(const int grade) : _name("A")
 {
-  try
-  {
-    if (grade < 1)
-      throw GradeTooHighException();
-    if (grade > 150)
-      throw GradeTooLowException();
-    _grade = grade;
-  }
-  catch (std::exception& e)
-  {
-    std::cerr << e.what() << std::endl;
-  }
+  if (grade < 1)
+    throw GradeTooHighException();
+  if (grade > 150)
+    throw GradeTooLowException();
+  _grade = grade;
 }
 
 Bureaucrat::~Bureaucrat(){}
