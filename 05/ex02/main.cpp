@@ -23,6 +23,7 @@ int main()
   {  
     a.executeForm(rForm);
     sleep(1);
+    std::cout << std::endl;
   }
   
   //Test for PresidentialPardonForm
