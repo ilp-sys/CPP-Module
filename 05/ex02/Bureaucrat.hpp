@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-class AForm;
+#include "AForm.hpp"
 
 class Bureaucrat
 {
@@ -21,7 +21,8 @@ class Bureaucrat
 
     void	        upgradeBureaucrat();
     void	        degradeBureaucrat();
-    void	        signForm();
+
+    void	        signForm(AForm& form);
     void	        executeForm(AForm const & form);
 
     class GradeTooHighException;

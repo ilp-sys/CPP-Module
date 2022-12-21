@@ -41,9 +41,22 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& b)
   return out << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
 }
 
-void Bureaucrat::signForm()
+void Bureaucrat::signForm(AForm &form)
 {
-  std::cout << "Bureaucrat signing form" << std::endl;
+  try
+  {
+    if (form.getSignGrade() < getGrade())
+    {
+      std::cerr << getName() << " couldn't sign " << form.getName() << " because ";
+      throw GradeTooLowException();
+    }
+    form.beSigned(*this);
+    std::cout << getName() << " signed " << form.getName() << std::endl;
+  }
+  catch (std::exception &e)
+  {
+    std::cerr << e.what() << std::endl;
+  }
 }
 
 void Bureaucrat::upgradeBureaucrat()
@@ -72,4 +85,28 @@ void Bureaucrat::degradeBureaucrat()
   {
     std::cerr << e.what() << std::endl;
   }  
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+  try
+  {
+    if (form.getExecuteGrade() < getGrade())
+    {
+      throw GradeTooLowException();
+    }
+    if (form.getSigned() == true)
+    {
+      std::cout << getName() << " executed " << form.getName() << std::endl;
+      form.execute(*this);
+    }
+    else
+    {
+      std::cout << "Form " << getName() << " is not signed yet!" << std::endl;
+    }
+  }
+  catch (std::exception &e)
+  {
+    std::cerr << e.what() << std::endl;
+  }
 }

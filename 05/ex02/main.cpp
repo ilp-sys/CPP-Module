@@ -6,15 +6,11 @@
 
 int main()
 {
-  Bureaucrat a(1);
-  Bureaucrat b(150);
-
-  ShrubberyCreationForm	  scf;
-  RobotomyRequestForm	    rrf;
-  PresidentialPardonForm	ppf;
-
-  scf.beSigned(a);
-  scf.beSigned(b);
-
+  //Test for ShrubberyCreationForm
+  
+  //Test for RobotomyRequestForm
+  
+  //Test for PresidentialPardonForm
+  
   return (0);
 }

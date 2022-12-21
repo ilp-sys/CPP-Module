@@ -20,6 +20,11 @@ AForm::AForm(const AForm& other) : _name(other.getName()), _sGrade(other.getSign
   *this = other;
 }
 
+AForm::AForm(int sGrade, int eGrade, std::string name): _name(name), _sGrade(sGrade), _eGrade(eGrade)
+{
+  _signed = false;
+}
+
 AForm& AForm::operator=(const AForm &other)
 {
   if (this != &other)
@@ -29,6 +34,9 @@ AForm& AForm::operator=(const AForm &other)
 
 AForm::~AForm() {}
 
+void AForm::setSigned(bool s) { _signed = s; }
+
+
 int AForm::getSignGrade() const { return (_sGrade); }
 
 int AForm::getExecuteGrade() const { return (_eGrade); }
@@ -37,22 +45,7 @@ bool AForm::getSigned() const { return (_signed); }
 
 std::string AForm::getName() const { return (_name); }
 
-void AForm::beSigned(Bureaucrat &b)
-{
-  try
-  {
-    if (b.getGrade() > getSignGrade())
-      throw GradeTooLowException();
-    b.signForm();
-    _signed = true;
-    std::cout << b.getName() << " signed " << getName() << std::endl;
-  }
-  catch (std::exception &e)
-  {
-    std::cerr << b.getName() << " couldn't sign " << getName() << " because ";
-    std::cerr << e.what() << std::endl;
-  }
-}
+void AForm::beSigned(Bureaucrat &b) { _signed = true; }
 
 std::ostream& operator<<(std::ostream& out, const AForm& f)
 {
