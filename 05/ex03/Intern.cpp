@@ -23,15 +23,12 @@ AForm* Intern::makeForm(std::string formName, std::string formTarget)
       case 0:
         std::cout << "Intern creates ShrubberyCreationForm" << std::endl;
         return new ShrubberyCreationForm(formTarget);
-        break;
       case 1:
         std::cout << "Intern creates RobotomyRequestForm" << std::endl;
         return new RobotomyRequestForm(formTarget);
-        break;
       case 2:
         std::cout << "Intern creates PresidentialPardonForm" << std::endl;
         return new PresidentialPardonForm(formTarget);
-        break;
       default:
         std::cerr << "Form not found" << std::endl;
         return (NULL);
