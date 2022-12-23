@@ -1,4 +1,4 @@
-NAME			  := serialization
+NAME			  := Identifier 
 
 CXX 				:= c++
 CXXFLAGS  	:= -std=c++98 -Wall -Wextra -Werror
@@ -6,7 +6,7 @@ CXXFLAGS  	:= -std=c++98 -Wall -Wextra -Werror
 RM				  := rm
 RMFLAGS     := -rf
 
-SRCS 			  :=  main.cpp
+SRCS 			  := main.cpp
 
 OBJDIR			:= ./obj/
 OBJNAME			:= $(SRCS:.cpp=.o)
