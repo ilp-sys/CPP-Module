@@ -12,8 +12,9 @@ void identify(Base &);
 
 int main()
 {
-  std::cout << "\n=TEST FOR `void identify(Base* p)`=\n" << std::endl;
   Base *generatedP = generate();
+
+  std::cout << "\n=TEST FOR `void identify(Base* p)`=\n" << std::endl;
   identify(generatedP);
   
   std::cout << "\n=TEST FOR `void identify(Base& p)`=\n" << std::endl;
@@ -26,7 +27,7 @@ int main()
 
 Base * generate(void)
 {
-  std::srand(std::time(nullptr));
+  std::srand(std::time(NULL));
   int random = std::rand() % 3;
 
   switch (random)
@@ -49,11 +50,11 @@ Base * generate(void)
 void identify(Base *p)
 {
   std::cout << "Base point *p's instance type is ";
-  if (A* ap = dynamic_cast<A*>(p))
+  if (dynamic_cast<A*>(p))
     std::cout << "A" << std::endl;
-  else if (B* bp = dynamic_cast<B*>(p))
+  else if (dynamic_cast<B*>(p))
     std::cout << "B" << std::endl;
-  else if (C* cp = dynamic_cast<C*>(p))
+  else if (dynamic_cast<C*>(p))
     std::cout << "C" << std::endl;
 }
 
@@ -66,7 +67,7 @@ void identify(Base &r)
     (void)ar;
     std::cout << "A" << std::endl;
   }
-  catch(std::bad_cast expt)
+  catch (...)
   {
     try
     {
@@ -74,7 +75,7 @@ void identify(Base &r)
       (void)br;
       std::cout << "B" << std::endl;
     }
-    catch (std::bad_cast expt)
+    catch (...)
     {
       std::cout << "C" << std::endl;
     }
