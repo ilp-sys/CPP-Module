@@ -3,10 +3,16 @@
 #include <cctype>
 #include <cmath>
 #include <cstdlib>
+#include <iomanip>
 
 void printConvChar(double d)
 {
   std::cout << "char: ";
+  if (d > CHAR_MAX || d < CHAR_MIN)
+  { 
+    std::cout << "impossible" << std::endl;
+    return ;
+  }
   char casted = static_cast<char>(d);
   if (!isprint(casted))
   {
@@ -19,7 +25,7 @@ void printConvChar(double d)
 void printConvInt(double d)
 {
   std::cout << "int: ";
-  if (isnan(d))
+  if (isnan(d) || d > INT_MAX || d < INT_MIN)
   { 
     std::cout << "impossible" << std::endl;
     return ;
@@ -31,8 +37,9 @@ void printConvInt(double d)
 void printConvFloat(double d)
 {
   std::cout << "float: ";
+  std::cout << std::fixed;
   float casted = static_cast<float>(d);
-  std::cout << casted << std::endl;
+  std::cout << casted  << "f" << std::endl;
 }
 
 void printConvDouble(double d)
@@ -47,7 +54,6 @@ int main(int argc, char* argv[])
   if (argc == 2)
   {
     double origin = strtod(argv[1], NULL);
-    std::cout << "d: " << origin << std::endl;
     printConvChar(origin);
     printConvInt(origin);
     printConvFloat(origin);
