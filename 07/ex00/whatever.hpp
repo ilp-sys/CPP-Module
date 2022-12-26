@@ -1,7 +1,7 @@
 #ifndef __WHATEVER_HPP__
 #define __WHATEVER_HPP__
 
-template <typename T> //or template <class C>
+template <class T>
 void swap(T& lhs, T& rhs)
 {
   T tmp = lhs;
@@ -9,13 +9,13 @@ void swap(T& lhs, T& rhs)
   rhs = tmp;
 }
 
-template <typename T>
+template <class T>
 T min(T lhs, T rhs)
 {
   return lhs < rhs ? lhs : rhs;
 }
 
-template <typename T>
+template <class T>
 T max(T lhs, T rhs)
 {
   return lhs > rhs ? lhs : rhs;
