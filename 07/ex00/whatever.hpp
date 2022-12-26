@@ -10,13 +10,13 @@ void swap(T& lhs, T& rhs)
 }
 
 template <class T>
-T min(T lhs, T rhs)
+T min(const T lhs, const T rhs)
 {
   return lhs < rhs ? lhs : rhs;
 }
 
 template <class T>
-T max(T lhs, T rhs)
+T max(const T lhs, const T rhs)
 {
   return lhs > rhs ? lhs : rhs;
 }
