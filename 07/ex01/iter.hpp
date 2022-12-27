@@ -3,20 +3,20 @@
 
 #include <iostream>
 
-template <typename T>
-void addOne(T& op)
+template <class T>
+void addOne(T& num)
 {
-  ++op;
+  ++num;
 }
 
-template <class T>
-void subOne(T& op)
+template <>
+void addOne(std::string&)
 {
-  --op;
+  std::cerr << "can not calculate arithmatic operation to string" << std::endl;
 }
 
 template <class T, class U>
-void iter(const T* arr, const std::size_t size, const U f)
+void iter(T* arr, const size_t size, const U f)
 {
   for (std::size_t i = 0; i < size; ++i)
       f(arr[i]);
@@ -26,7 +26,8 @@ template <class T>
 void iterPrint(const T*arr, const std::size_t size)
 {
   for (std::size_t i = 0; i < size; ++i)
-    std::cout << arr[i] << std::endl;
+    std::cout << arr[i] << " ";
+  std::cout << std::endl;
 }
 
 #endif
