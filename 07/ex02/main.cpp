@@ -1,10 +1,25 @@
-#include <iostream>
 #include "Array.hpp"
 
 #define MAX_VAL 750
 
+void func(){
+  std::cout << "CHECKING UNTESTED\n"  << std::endl;
+
+  Array<double> arr1(3);
+  for (int i = 0; i < 3; i++)
+    arr1[i] = 1;
+
+  Array<double> arr2(5);
+  for (int i = 0; i < 5; i++)
+    arr2[i] = 2;
+
+  arr2 = arr1;
+}
+
 int main(int, char**)
 {
+  std::cout << "EXECUTE GIVEN TEST\n" << std::endl;
+
   Array<int> numbers(MAX_VAL);
   int* mirror = new int[MAX_VAL];
 
@@ -17,7 +32,7 @@ int main(int, char**)
   }
   //SCOPE
   {
-    Array<int> tmp = numbers[i];
+    Array<int> tmp = numbers;
     Array<int> test(tmp);
   }
   for (int i = 0; i < MAX_VAL; i++)
@@ -49,5 +64,9 @@ int main(int, char**)
       numbers[i] = rand();
   }
   delete[] mirror;
+
+  func();
+
+  system("leaks Array");
   return (0);
 }
