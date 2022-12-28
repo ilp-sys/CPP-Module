@@ -15,5 +15,4 @@ class MutantStack : public std::stack<T>
     iterator rend() { return this->c.rend(); }
 };
 
-
 #endif
