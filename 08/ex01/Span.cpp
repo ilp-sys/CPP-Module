@@ -6,7 +6,7 @@ Span::Span(){}
 
 Span::Span(const Span& other){ *this = other; }
 
-Span::Span(unsigned int n):_capa(n), _size(0) {}
+Span::Span(unsigned int n):_capa(n) {}
 
 Span& Span::operator=(const Span &other)
 {
@@ -14,26 +14,22 @@ Span& Span::operator=(const Span &other)
   {
     _arr = other.getArr();
     _capa = other.getCapa();
-    _size = other.getSize();
   }
   return (*this);
 }
 
-Span::Span(iter& it1, iter& it2):_capa(0), _size(0)
+Span::Span(iter& it1, iter& it2):_capa(0)
 {
   for (; it1 != it2; ++it1)
   {
       _arr.push_back(*it1);
       ++_capa;
-      ++_size;
   }
 }
 
 Span::~Span(){}
 
 unsigned int Span::getCapa() const { return (_capa); }
-
-unsigned int Span::getSize() const { return (_size); }
 
 std::vector<int> Span::getArr() const { return (_arr); }
 
@@ -45,10 +41,9 @@ class Span::SpanFullException : public std::exception
 
 void Span::addNumber(unsigned int num)
 {
-  if (_size + 1 > _capa)
+  if (_arr.size() + 1 > _capa)
     throw SpanFullException();
   _arr.push_back(num);
-  ++_size;
 }
 
 unsigned int Span::longestSpan()
