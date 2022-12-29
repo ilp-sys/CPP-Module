@@ -45,9 +45,10 @@ class Span::SpanFullException : public std::exception
 
 void Span::addNumber(unsigned int num)
 {
-  if (_size + 1 == _capa)
+  if (_size + 1 > _capa)
     throw SpanFullException();
   _arr.push_back(num);
+  ++_size;
 }
 
 unsigned int Span::longestSpan()
